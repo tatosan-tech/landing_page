@@ -1,0 +1,354 @@
+################################# Default configuration ###################
+# provide your domain here
+baseURL = "https://www.tatosan.com/"
+theme = "do"
+title = "TATOSAN"
+disableLanguages = []
+LanguageCode = "ru-ru"
+DefaultContentLanguage = "ru"
+pygmentsUseClasses = true
+
+[markup.goldmark.renderer]
+unsafe= true
+
+################################# navigation ################################
+[[menu.main]]
+name = "документация"
+url = "docs"
+weight = 2
+
+[[menu.main]]
+name = "контакты"
+url = "contact"
+weight = 3
+
+# Dropdown menu
+[[menu.main]]
+weight = 1
+name = "проекты"
+#hasChildren = true
+url = "#projects"
+
+#  [[menu.main]]
+#  parent = "проекты"
+#  name = "Installation"
+#  url = "installation"
+#  weight = 1
+
+#  [[menu.main]]
+#  parent = "проекты"
+#  name = "Billing and Pricing"
+#  url = "billing-pricing"
+#  weight = 2
+
+############################# Default Parameters ##########################
+[params]
+# logo is for all page
+logo = ""
+# logo white is for homepage logo, you can use colorful logo too...
+logo_white = ""
+# when logo is empty, it will shown your site title
+
+# customize color
+primary_color = "#02007e"
+body_color = "#f9f9f9"
+text_color = "#636363"
+text_color_dark = "#242738"
+white_color = "#ffffff"
+light_color = "#f8f9fa"
+
+# font family
+font_family = "lato" # Choose font family from : https://fonts.google.com/
+
+# contact form action
+contact_form_action = "#" # contact form works with : https://formspree.io
+
+
+############################## social links ##############################
+[[params.social]]
+icon = "socicon-twitter" # themify icon pack : https://themify.me/themify-icons
+link = "https://twitter.com/@_TatoSan_"
+  
+[[params.social]]
+icon = "socicon-youtube" # themify icon pack : https://themify.me/themify-icons
+link = "https://youtube.com/"
+  
+[[params.social]]
+icon = "socicon-telegram" # themify icon pack : https://themify.me/themify-icons
+link = "https://t.me/Tato_San"
+
+################################ English Language ######################
+[Languages.en]
+languageName = "En"
+languageCode = "en-us"
+weight = 2
+home = "Home"
+description = "Разработка и внедрение программного обеспечения для различного оборудования. Полный комплекс услуг от идеи до готового продукта."
+keywords = ["Автоматизация", "Роботизация", "Контроллеры", "Программирование"]
+copyright = "© Copyright 2020 - [Tatosan](https://tatosan.com/)"
+footer = "Компания разрабатываюшая програмное обеспечение для автоматизации и роботизации различных сфер деятельности и производства."
+contact = "Связаться с нами"
+dateFormat = "2 January 2006"
+
+    # header2
+    [Languages.en.params.header2]
+    title = "Автоматизация и роботизация"
+    content = "Разработка и внедрение программного обеспечения для различного оборудования. Полный комплекс услуг от идеи до готового продукта."
+    btn = "Подробнее"
+
+    # about
+    [Languages.en.params.about]
+    name = "about"
+
+      [[Languages.en.params.about.main]]
+      title = "Помощь"
+      content = "Надежная и проффесиональная помощь, всегда готова ответить на ваши вопросы и предложить несколько вариантов решений."
+      icon = "mbri-help"
+
+      [[Languages.en.params.about.main]]
+      title = "Индивидуальный подход"
+      content = "Мы любим и ценим всех наших клиентов и стараемся подобрать индивидуальный способ общения с каждым из них."
+      icon = "mbri-like"
+
+      [[Languages.en.params.about.main]]
+      title = "Безопасность"
+      content = "В современном мире безопасность является основой стабильности. Все наши продукты проходят внутренную акредитацию."
+      icon = "mbri-protect"
+
+    # advantages
+    [Languages.en.params.advantages]
+    title = "Преймущества автоматизации:"
+
+      [[Languages.en.params.advantages.main]]
+      title = "Качество и скорость"
+      content = "Увеличение скорости производства и одновременное сокращение брака вашей продукции."
+
+      [[Languages.en.params.advantages.main]]
+      title = "Отсутствие человеческого фактора"
+      content = "Не нужно беспокоится о вероятности не выхода на работу из-за травм или по другой причине."
+
+      [[Languages.en.params.advantages.main]]
+      title = "Финансовая стабильность"
+      content = "Возможность более точно и прогнозируемо рассчитать доходы и расходы на производстве."
+
+      [[Languages.en.params.advantages.main]]
+      title = "Снижение расходов"
+      content = "Сокращение расходов за счет отсутствия зароботной платы. затрат на спецодежду, болничные, премии."
+
+
+      [[Languages.en.params.advantages.slave]]
+      title = "Конкурентное преимущество"
+      content = "Возможность подняться над конкурентами за счет технологического преимущества."
+
+      [[Languages.en.params.advantages.slave]]
+      title = "Повышение имиджа"
+      content = "О вас будут говорить как о передовом, современном производстве идущем в ногу со временем."
+
+      [[Languages.en.params.advantages.slave]]
+      title = "Максимальная производительность"
+      content = "Возможность загрузить производство на максимальный рабочий цикл без перерывов и выходных 365 дней в году."
+
+      [[Languages.en.params.advantages.slave]]
+      title = "Гибкость, быстрая переориентация"
+      content = "Нет зависимости от квалификации рабочих. Гибкая и быстрая перенастройка на другой тип продукции."
+
+    # projects
+    [Languages.en.params.projects]
+    title = "Примеры кейсов:"
+
+      [[Languages.en.params.projects.main]]
+      title = "Универсальный контроллер"
+      content = "Представляет собой KIT набор обьедененный специальным програмным обеспечением, который позволяет одновременно управлять шаговыми двигателями, сервоприводами и другим оборудованием через REST API по сети."
+      btn = "Подробнее"
+      img = "/images/kit.png"
+      url = "/projects/controller/"
+
+      [[Languages.en.params.projects.main]]
+      title = "Автоматизация аптек"
+      content = 'Совместно с командой <a target=_blank href="https://voltaro.com.ua/">Voltaro</a> нами был разработан программно аппаратный комплес для аптек - "Робот фармацевт", который по своим харрактеристикам не только не уступает аналогам, но и имеет ряд преймуществ.'
+      btn = "Подробнее"
+      img = "/images/pharm_robot.png"
+      url = "/projects/pharm_robot/"
+
+    # directions
+    [Languages.en.params.directions]
+    title = "Приоритетные направления:"
+    content = "Области автоматизации в направлении которых мы проводим работы в данный момент."
+    img = "/images/worknow.jpg"
+
+      [[Languages.en.params.directions.main]]
+      title = "Автоматизация оборудования на производстве"
+
+      [[Languages.en.params.directions.main]]
+      title = "Вендинговые автоматы"
+
+      [[Languages.en.params.directions.main]]
+      title = "Автоматизация аптек"
+
+      [[Languages.en.params.directions.main]]
+      title = "Роботизация складских помещений"
+
+      [[Languages.en.params.directions.main]]
+      title = "Строительная 3D печать"
+
+      [[Languages.en.params.directions.main]]
+      title = "Автоматизация в рекламе"
+
+    # choice
+    [Languages.en.params.choice]
+    title = "За что выбирают нас:"
+    img = "/images/hands.jpg"
+
+      [[Languages.en.params.choice.main]]
+      content = '<b>Мы ценим ваше время.</b> Мы не беремся за проекты которые не способны довести до конца. Наша цель не только дать заказчику ощутить чуство удовлетворенности, но и добавить ему уверенности в завтрашнем дне.'
+
+      [[Languages.en.params.choice.main]]
+      content = '<b>Постоянная связь с клиентом.</b> Да мы будем часто вас беспокоить и не только для того чтобы держать вас в курсе этапов развития проекта.'
+
+      [[Languages.en.params.choice.main]]
+      content = '<b>Современный подход.</b> Для решения поставленной задачи мы используем передовые технологии и современный подход.'
+
+    # wi
+    [Languages.en.params.wi]
+    title = "Хотите узнать?"
+    content = "Как мы сможем помочь вашему оборудованию подняться на новый эволюционный уровень."
+    btn = "задать вопрос"
+
+
+################################ Russian Language ######################
+[Languages.ru]
+languageName = "Ru"
+languageCode = "ru-ru"
+weight = 1
+home = "Home"
+description = "Разработка и внедрение программного обеспечения для различного оборудования. Полный комплекс услуг от идеи до готового продукта."
+keywords = ["Автоматизация", "Роботизация", "Контроллеры", "Программирование"]
+copyright = "© Copyright 2020 - [Tatosan](https://tatosan.com/)"
+footer = "Компания разрабатываюшая програмное обеспечение для автоматизации и роботизации различных сфер деятельности и производства."
+contact = "Связаться с нами"
+dateFormat = "2 January 2006"
+
+    # header2
+
+    [Languages.ru.params.header2]
+    title = "Автоматизация и роботизация"
+    content = "Разработка и внедрение программного обеспечения для различного оборудования. Полный комплекс услуг от идеи до готового продукта."
+    btn = "Подробнее"
+
+    # about
+    [Languages.ru.params.about]
+    name = "о нас"
+
+      [[Languages.ru.params.about.main]]
+      title = "Помощь"
+      content = "Надежная и проффесиональная помощь, всегда готова ответить на ваши вопросы и предложить несколько вариантов решений."
+      icon = "mbri-help"
+
+      [[Languages.ru.params.about.main]]
+      title = "Индивидуальный подход"
+      content = "Мы любим и ценим всех наших клиентов и стараемся подобрать индивидуальный способ общения с каждым из них."
+      icon = "mbri-like"
+
+      [[Languages.ru.params.about.main]]
+      title = "Безопасность"
+      content = "В современном мире безопасность является основой стабильности. Все наши продукты проходят внутренную акредитацию."
+      icon = "mbri-protect"
+
+    # advantages
+    [Languages.ru.params.advantages]
+    title = "Преймущества автоматизации:"
+
+      [[Languages.ru.params.advantages.main]]
+      title = "Качество и скорость"
+      content = "Увеличение скорости производства и одновременное сокращение брака вашей продукции."
+
+      [[Languages.ru.params.advantages.main]]
+      title = "Отсутствие человеческого фактора"
+      content = "Не нужно беспокоится о вероятности не выхода на работу из-за травм или по другой причине."
+
+      [[Languages.ru.params.advantages.main]]
+      title = "Финансовая стабильность"
+      content = "Возможность более точно и прогнозируемо рассчитать доходы и расходы на производстве."
+
+      [[Languages.ru.params.advantages.main]]
+      title = "Снижение расходов"
+      content = "Сокращение расходов за счет отсутствия зароботной платы. затрат на спецодежду, болничные, премии."
+
+
+      [[Languages.ru.params.advantages.slave]]
+      title = "Конкурентное преимущество"
+      content = "Возможность подняться над конкурентами за счет технологического преимущества."
+
+      [[Languages.ru.params.advantages.slave]]
+      title = "Повышение имиджа"
+      content = "О вас будут говорить как о передовом, современном производстве идущем в ногу со временем."
+
+      [[Languages.ru.params.advantages.slave]]
+      title = "Максимальная производительность"
+      content = "Возможность загрузить производство на максимальный рабочий цикл без перерывов и выходных 365 дней в году."
+
+      [[Languages.ru.params.advantages.slave]]
+      title = "Гибкость, быстрая переориентация"
+      content = "Нет зависимости от квалификации рабочих. Гибкая и быстрая перенастройка на другой тип продукции."
+
+    # projects
+    [Languages.ru.params.projects]
+    title = "Примеры кейсов:"
+
+      [[Languages.ru.params.projects.main]]
+      title = "Универсальный контроллер"
+      content = "Представляет собой KIT набор обьедененный специальным програмным обеспечением, который позволяет одновременно управлять 4-мя шаговыми двигателями и 6-ю сервоприводами через REST API по сети."
+      btn = "Подробнее"
+      img = "/images/kit.png"
+      url = "/projects/controller/"
+
+      [[Languages.ru.params.projects.main]]
+      title = "Автоматизация аптек"
+      content = 'Совместно с командой <a target=_blank href="https://voltaro.com.ua/">Voltaro</a> нами был разработан программно аппаратный комплес для аптек - "Робот фармацевт", который по своим харрактеристикам не только не уступает аналогам, но и имеет ряд преймуществ.'
+      btn = "Подробнее"
+      img = "/images/pharm_robot.png"
+      url = "/projects/pharm_robot/"
+
+    # directions
+    [Languages.ru.params.directions]
+    title = "Приоритетные направления:"
+    content = "Области автоматизации в направлении которых мы проводим работы в данный момент."
+    img = "/images/worknow.jpg"
+
+      [[Languages.ru.params.directions.main]]
+      title = "Автоматизация оборудования на производстве"
+
+      [[Languages.ru.params.directions.main]]
+      title = "Вендинговые автоматы"
+
+      [[Languages.ru.params.directions.main]]
+      title = "Автоматизация аптек"
+
+      [[Languages.ru.params.directions.main]]
+      title = "Роботизация складских помещений"
+
+      [[Languages.ru.params.directions.main]]
+      title = "Строительная 3D печать"
+
+      [[Languages.ru.params.directions.main]]
+      title = "Автоматизация в рекламе"
+
+    # choice
+    [Languages.ru.params.choice]
+    title = "За что выбирают нас:"
+    img = "/images/hands.jpg"
+
+      [[Languages.ru.params.choice.main]]
+      content = '<b>Мы ценим ваше время.</b> Мы не беремся за проекты которые не способны довести до конца. Наша цель не только дать заказчику ощутить чуство удовлетворенности, но и добавить ему уверенности в завтрашнем дне.'
+
+      [[Languages.ru.params.choice.main]]
+      content = '<b>Постоянная связь с клиентом.</b> Да мы будем часто вас беспокоить и не только для того чтобы держать вас в курсе этапов развития проекта.'
+
+      [[Languages.ru.params.choice.main]]
+      content = '<b>Современный подход.</b> Для решения поставленной задачи мы используем передовые технологии и современный подход.'
+
+    # wi
+    [Languages.ru.params.wi]
+    title = "Хотите узнать?"
+    content = "Как мы сможем помочь вашему оборудованию подняться на новый эволюционный уровень."
+    btn = "задать вопрос"

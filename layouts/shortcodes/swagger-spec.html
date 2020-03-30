@@ -1,0 +1,23 @@
+<div id="swagger-ui"></div>
+<script src="{{ `plugins/swagger/js/swagger-ui-bundle.js` | absURL }}"></script>
+<script src="{{ `plugins/swagger/js/swagger-ui-standalone-preset.js` | absURL }}"></script>
+<script>
+  window.onload = function() {
+  // Begin Swagger UI call region
+  const ui = SwaggerUIBundle({
+    url: '{{ .Get "url" }}',
+    dom_id: '#swagger-ui',
+    deepLinking: true,
+    presets: [
+      SwaggerUIBundle.presets.apis,
+      SwaggerUIStandalonePreset
+    ],
+    plugins: [
+      SwaggerUIBundle.plugins.DownloadUrl
+    ],
+    layout: "StandaloneLayout"
+  })
+  // End Swagger UI call region
+  window.ui = ui
+  }
+</script>

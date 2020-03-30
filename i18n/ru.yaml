@@ -1,0 +1,11 @@
+- id: topics_title
+  translation: Trouvez votre réponse par sujet
+  
+- id: send
+  translation: Отправить
+
+- id: price
+  translation: Хотите больше?
+
+- id: price_detail
+  translation: Просчитать стоимость или получить более детальную информацию о наших продуктах.

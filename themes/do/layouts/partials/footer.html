@@ -1,0 +1,64 @@
+{{ "<!-- footer -->" | safeHTML }}
+<footer class="cid-ruOTxA2tiD" id="footer">
+    <div class="container">
+        <div class="media-container-row">
+            <div class="col-md-8">
+                <div class="media-wrap">
+                    <a href="{{ .Site.BaseURL | relLangURL }}"><h2>{{ .Site.Title }}</h2></a>
+                    <div class="mbr-section-text">
+                        {{ with .Site.Params.footer }}<p>{{ . | safeHTML }}</p>{{ end }}
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <p class="mbr-text align-right links mbr-fonts-style display-4">
+                    <a href="{{ .Site.BaseURL | relLangURL }}#about" class="nav-link link text-black display-4"><b>{{ .Site.Params.About.name }}</b></a>
+                    <a href="tel:+380956151251?call" class="nav-link link text-black display-4"><b>+38-095-6151251</b></a>
+                    <a href="mailto:&#105;&#110;&#102;&#111;&#064;&#116;&#097;&#116;&#111;&#115;&#097;&#110;&#046;&#099;&#111;&#109;" class="nav-link link text-black display-4"><b>&#105;&#110;&#102;&#111;&#064;&#116;&#097;&#116;&#111;&#115;&#097;&#110;&#046;&#099;&#111;&#109;</b></a>
+                </p>
+            </div>
+        </div>
+        <div class="footer-lower">
+            <div class="media-container-row">
+                <div class="col-md-12">
+                    <hr>
+                </div>
+            </div>
+            <div class="media-container-row mbr-white">
+                <div class="col-md-6 copyright">
+                    <p class="mbr-text mbr-fonts-style display-7">
+                        {{ .Site.Params.copyright | markdownify }}
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    <div class="social-list align-right">
+                        {{ range .Site.Params.social }}
+                        <div class="soc-item">
+                            <a href="{{ .link | safeURL }}" target="_blank">
+                                <span class="mbr-iconfont mbr-iconfont-social socicon"><i class="{{ .icon }}"></i></span>
+                            </a>
+                        </div>
+                        {{ end }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<script src="{{ `plugins/jquery/jquery.min.js` | absURL }}"></script>
+<script src="{{ `plugins/popper/popper.min.js` | absURL }}"></script>
+<script src="{{ `plugins/tether/tether.min.js` | absURL }}"></script>
+<script src="{{ `plugins/bootstrap/bootstrap.min.js` | absURL }}"></script>
+<script src="{{ `plugins/dropdown/nav-dropdown.js` | absURL }}"></script>
+<script src="{{ `plugins/dropdown/navbar-dropdown.js` | absURL }}"></script>
+<script src="{{ `plugins/touchswipe/jquery.touch-swipe.min.js` | absURL }}"></script>
+<script src="{{ `plugins/parallax/jarallax.min.js` | absURL }}"></script>
+<script src="{{ `plugins/smoothscroll/smooth-scroll.js` | absURL }}"></script>
+<script src="{{ `plugins/theme/script.js` | absURL }}"></script>
+
+{{ "<!-- /footer -->" | safeHTML }}
+<div id="scrollToTop" class="scrollToTop mbr-arrow-up">
+    <a style="text-align: center;"><i class="mbr-arrow-up-icon mbr-arrow-up-icon-cm cm-icon cm-icon-smallarrow-up"></i></a>
+</div>

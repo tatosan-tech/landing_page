@@ -1,0 +1,46 @@
+<head>
+  <meta charset="utf-8">
+  <title>{{ .Title }}</title>
+
+  {{ hugo.Generator }}
+
+  {{ "<!-- keywords, description -->" | safeHTML }}
+  <meta name="keywords" content="{{ with .Keywords }}{{ . }}{{ else }}{{ .Site.Params.keywords }}{{ end }}" />
+  <meta name="description" content='{{ .Param "description" }}' />
+  
+  {{ "<!--Open Graph-->" | safeHTML }}
+  <meta property="og:title" content="{{ .Title }}" />
+  <meta property="og:image" content="{{ .Site.BaseURL }}images/business.jpg" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="{{ .Site.BaseURL }}" />
+  <meta property="og:description" content='{{ .Param "description" }}' />
+
+  {{ "<!-- mobile responsive meta -->" | safeHTML }}
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  {{ "<!--Favicon-->" | safeHTML }}
+  <link rel="icon" href="{{ `images/favicon.png` | absURL }}" type="image/x-icon">
+  
+  {{ "<!-- ** Plugins Needed for the Project ** -->" | safeHTML }}
+  {{ "<!-- Bootstrap -->" | safeHTML }}
+  <link rel="stylesheet" href="{{ `plugins/bootstrap/bootstrap.min.css` | absURL }}">
+  <link rel="stylesheet" href="{{ `plugins/mobirise/mbr-additional.css` | absURL }}">
+  <link rel="stylesheet" href="{{ `plugins/mobirise/mobirise-icons.css` | absURL }}">
+  <link rel="stylesheet" href="{{ `plugins/dropdown/style.css` | absURL }}">
+  <link rel="stylesheet" href="{{ `plugins/theme/style.css` | absURL }}">
+  <link rel="stylesheet" href="{{ `plugins/tether/tether.min.css` | absURL }}">
+
+  {{ "<!-- themefy-icon -->" | safeHTML }}
+  <link rel="stylesheet" href="{{ `plugins/socicon/socicon.css` | absURL }}">
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-162002873-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-162002873-1');
+</script>
+
+</head>

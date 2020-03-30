@@ -1,0 +1,551 @@
+openapi: 3.0.1
+info:
+  title: Робот фармацевт
+  description: 'Протокол взаимодействия с роботом основан на общепринятых принципах построения REST приложений и имеет строгую типизацию. Все запросы должны выполняться по защищенному протоколу `HTTPS` и содержать в заголовке ключь авторизации `(Auth-Token: XXXXXXXXXXXXXXX...)`. Подробнее [tatosan.com](https://tatosan.com) .' 
+  contact:
+#    description: Связаться с разработчиком
+    email: googolgl@gmail.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.0
+externalDocs:
+  description: Узнать больше о проекте
+  url: https://tatosan.com
+#servers:
+#- url: https://petstore.swagger.io/v2
+#- url: http://petstore.swagger.io/v2
+tags:
+- name: robot
+  description: Управлене роботом
+- name: products
+  description: Операции с товаром
+- name: signin
+  description: Авторизация
+#  externalDocs:
+#    description: Find out more about our store
+#    url: http://swagger.io
+paths:
+  /signin:
+    post:
+      tags:
+      - signin
+      summary: Авторизация и получение JWT токена
+      operationId: runSign
+      requestBody:
+        description: Логин и пароль для авторизации и получении JWT токена
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Signin'
+        required: true
+      responses:
+        400:
+          description: Bad Request
+          content: 
+            'text/plain':
+              example: Bad Request
+        401:
+          description: Unauthorized
+          content: 
+            'text/plain':
+              example:  Unauthorized
+        500:
+          description: Internal Server 
+          content: 
+            'text/plain':
+              example:  Error database
+        200:
+          description: complete
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              examples:
+                ok:
+                  value:
+                    code: 200
+                    type: token
+                    message: eyJhbGciOiJINiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJleHAiOjE1ODUwNDgxMzR9.EspDAXJnAVJ0ZG98x05KMiVgOqu_nMwqtLK-xulHCL4
+  /robot:
+    post:
+      tags:
+      - robot
+      summary: Перемещение к полке с товаром, извлечение и выгрузка в окно приемки
+      operationId: runRobot
+      parameters:
+      - name: Auth-Token
+        in: header
+        description: JWT токен для авторизации (подпись)
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: Список товаров которые необходимо получить и адресс окна приемки
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Robot'
+        required: true
+      responses:
+        400:
+          description: Bad Request
+          content: 
+            'text/plain':
+              examples:
+                ReqBodyToLarge:
+                  value: Request body too large
+                HeaderNoJSON:
+                  value: Content-Type header is not application/json
+                ReqBodyAbsent:
+                  value: Request body is absent
+        401:
+          description: Unauthorized
+          content: 
+            'text/plain':
+              example:  Invalid Token value
+        500:
+          description: Internal Server 
+          content: 
+            'text/plain':
+              example:  Error database
+        200:
+          description: complete
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              examples:
+                ok:
+                  value:
+                    code: 200
+                    type: complete
+                    message: accepted
+                errorLimit:
+                  value:
+                    code: 200
+                    type: error
+                    message: the limit of products that you can get immediately is exceeded
+                errorCellNo:
+                  value:
+                    code: 200
+                    type: error
+                    message: cell {num} not found
+                errorHomeNo:
+                  value:
+                    code: 200
+                    type: error
+                    message: home {num} not found
+  /products:
+    get:
+      tags:
+      - products
+      summary: Получить информацию о всех товарах
+      description: Это может сделать только авторизованный пользователь.
+#      description: This can only be done by the authorised in user.
+      operationId: getProducts
+      parameters:
+      - name: Auth-Token
+        in: header
+        description: JWT токен для авторизации (подпись)
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: выполнено
+#          description: successful operation
+          content:
+            application/json:
+#              schema:
+#                $ref: '#/components/schemas/RespProducts'
+              example: [
+                "1234567890123": [
+                  {
+                    cell: 3, 
+                    amount: 1
+                  },
+                  {
+                    cell: 12, 
+                    amount: 2
+                  },
+                ],
+                "1234567890124": [
+                  {
+                    cell: 1, 
+                    amount: 5
+                  },
+                ]
+              ]
+        400:
+          description: Bad Request
+          content: 
+            'text/plain':
+              examples:
+                ReqBodyToLarge:
+                  value: Request body too large
+                HeaderNoJSON:
+                  value: Content-Type header is not application/json
+                ReqBodyAbsent:
+                  value: Request body is absent
+        401:
+          description: Unauthorized
+          content: 
+            'text/plain':
+              example:  Invalid Token value
+        500:
+          description: Internal Server 
+          content: 
+            'text/plain':
+              example:  Error database
+#      x-codegen-request-body-name: body
+  /products/{id}:
+    get:
+      tags:
+      - products
+      summary: Получить информацию о товаре
+      description: Это может сделать только авторизованный пользователь.
+      operationId: getProductsByID
+      parameters:
+      - name: Auth-Token
+        in: header
+        description: JWT токен для авторизации (подпись)
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        description: код товара по которому необходимо получить информацию.
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: выполнено
+#          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RespProduct'
+#                $ref: '#/components/schemas/ApiResponse'
+              example:
+                ok:
+                  value:
+                    1234567890123: [{cell: 1, amount: 1}]
+                errorNoId:
+                  value:
+                    code: 200
+                    type: error
+                    message: product {num} not found
+        400:
+          description: Bad Request
+          content: 
+            'text/plain':
+              examples:
+                ReqBodyToLarge:
+                  value: Request body too large
+                HeaderNoJSON:
+                  value: Content-Type header is not application/json
+                ReqBodyAbsent:
+                  value: Request body is absent
+        401:
+          description: Unauthorized
+          content: 
+            'text/plain':
+              example:  Invalid Token value
+        500:
+          description: Internal Server 
+          content: 
+            'text/plain':
+              example:  Error database
+    post:
+      tags:
+      - products
+      summary: Добавить товар
+      description: Это может сделать только авторизованный пользователь.
+#      description: This can only be done by the logged in user.
+      operationId: addProducts
+      parameters:
+      - name: Auth-Token
+        in: header
+        description: JWT токен для авторизации (подпись)
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        description: код товара который необходимо добавить
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: Описание количества и место куда необходимо добавить продукт
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReqProduct'
+        required: true
+      responses:
+        200:
+          description: выполнено
+#          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                code: 200
+                type: complete
+                message: added
+        400:
+          description: Bad Request
+          content: 
+            'text/plain':
+              examples:
+                ReqBodyToLarge:
+                  value: Request body too large
+                HeaderNoJSON:
+                  value: Content-Type header is not application/json
+                ReqBodyAbsent:
+                  value: Request body is absent
+        401:
+          description: Unauthorized
+          content: 
+            'text/plain':
+              example:  Invalid Token value
+        500:
+          description: Internal Server 
+          content: 
+            'text/plain':
+              example:  Error database
+#      x-codegen-request-body-name: body
+    patch:
+      tags:
+      - products
+      summary: Изменить товар
+      description: Это может сделать только авторизованный пользователь.
+#      description: This can only be done by the logged in user.
+      operationId: updateProducts
+      parameters:
+      - name: Auth-Token
+        in: header
+        description: JWT токен для авторизации (подпись)
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        description: код товара который необходимо исправить
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: Описание количества и место куда необходимо добавить продукт
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReqProduct'
+        required: true
+      responses:
+        200:
+          description: выполнено
+#          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              examples:
+                ok:
+                  value:
+                    code: 200
+                    type: complete
+                    message: patched
+                errorNoId:
+                  value:
+                    code: 200
+                    type: error
+                    message: product {num} not found
+        400:
+          description: Bad Request
+          content: 
+            'text/plain':
+              examples:
+                ReqBodyToLarge:
+                  value: Request body too large
+                HeaderNoJSON:
+                  value: Content-Type header is not application/json
+                ReqBodyAbsent:
+                  value: Request body is absent
+        401:
+          description: Unauthorized
+          content: 
+            'text/plain':
+              example:  Invalid Token value
+        500:
+          description: Internal Server 
+          content: 
+            'text/plain':
+              example:  Error database
+#      x-codegen-request-body-name: body
+    delete:
+      tags:
+      - products
+      summary: Удалить товар
+      description: Это может сделать только авторизованный пользователь.
+#      description: This can only be done by the logged in user.
+      operationId: deleteProducts
+      parameters:
+      - name: Auth-Token
+        in: header
+        description: JWT токен для авторизации (подпись)
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        description: код товара который необходимо удалить
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: выполнено
+#          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              examples:
+                ok:
+                  value:
+                    code: 200
+                    type: complete
+                    message: removed
+                errorNoId:
+                  value:
+                    code: 200
+                    type: error
+                    message: product {num} not found
+        400:
+          description: Bad Request
+          content: 
+            'text/plain':
+              examples:
+                ReqBodyToLarge:
+                  value: Request body too large
+                HeaderNoJSON:
+                  value: Content-Type header is not application/json
+                ReqBodyAbsent:
+                  value: Request body is absent
+        401:
+          description: Unauthorized
+          content: 
+            'text/plain':
+              example:  Invalid Token value
+        500:
+          description: Internal Server 
+          content: 
+            'text/plain':
+              example:  Error database
+components:
+  schemas:
+    Robot:
+      required:
+      - pool
+      - home
+      type: object
+      properties:
+        pool:
+          type: array
+          items:
+             $ref: '#/components/schemas/ReqProduct'
+          minItems: 1
+        home:
+          type: integer
+          minimum: 0
+          maximum: 255
+          description: номер окна приемки
+      example:
+        pool: [
+          {
+            cell: 3, 
+            sum: 1
+          },
+          {
+            cell: 12, 
+            sum: 2
+          },
+          ]
+        home: 1
+#      xml:
+#        name: Robot
+    ReqProduct:
+      required:
+      - cell
+      - sum
+      type: object
+      properties:
+        cell:
+          type: integer
+          minimum: 0
+          maximum: 65535
+          description: номер ячейки
+        sum:
+          type: integer
+          minimum: 0
+          maximum: 255
+          description: количество товара
+    RespProduct:
+      type: object
+      properties:
+        id:
+          type: array
+          items:
+            type: object
+            properties:
+              cell:
+                type: integer
+                minimum: 0
+                maximum: 65535
+                description: номер ячейки
+              amount:
+                type: integer
+                minimum: 0
+                maximum: 255
+                description: остаток товара
+      example:
+        "1234567890123": [
+          {
+            cell: 3, 
+            amount: 1
+          },
+          {
+            cell: 12, 
+            amount: 2
+          },
+        ]
+    ApiResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        type:
+          type: string
+        message:
+          type: string
+    Signin:
+      required:
+      - login
+      - passwd
+      type: object
+      properties:
+        login:
+          type: string
+          description: логин
+        passwd:
+          type: string
+          description: пароль
+      example:
+        login: "admin"
+        passwd: "passwd"

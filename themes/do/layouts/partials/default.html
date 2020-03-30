@@ -1,0 +1,21 @@
+{{ "<!-- details page -->" | safeHTML }}
+<section class="single section pb-0">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="blog-entry" style="border-top-width: 0px;border-top-style: solid;padding-top: 130px;padding-bottom: 60px;">
+          {{ if .Content }}
+          <div class="content">{{.Content}}</div>
+          {{ else }}
+          <div class="bg-light p-4">
+            <ul class="page-list">
+              
+            </ul>
+          </div>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{{ "<!-- /details page -->" | safeHTML }}

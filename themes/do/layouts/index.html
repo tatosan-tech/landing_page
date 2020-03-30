@@ -1,0 +1,178 @@
+{{ define "main" }}
+<section class="cid-ruNtyUeTOv mbr-fullscreen mbr-parallax-background" id="header2">
+    <div class="mbr-overlay" style="opacity: 0.7; background-color: rgb(0, 35, 102);"></div>
+    <div class="container align-center">
+        <div class="row justify-content-md-center">
+            <div class="mbr-white col-md-10">
+                {{ with .Site.Params.header2.title }}<h1 class="mbr-section-title mbr-bold pb-3 mbr-fonts-style display-1" style="font-weight: normal;">{{ . | safeHTML }}</h1>{{ end }}
+                {{ with .Site.Params.header2.content }}<h3 class="mbr-text pb-3 mbr-fonts-style display-5">{{ . | safeHTML }}</h3>{{ end }}
+                <div class="mbr-section-btn"><a class="btn btn-md btn-secondary display-4" href="{{ .Site.BaseURL | relLangURL }}#about">{{.Site.Params.header2.btn}}</a></div>
+            </div>
+        </div>
+    </div>
+    <div class="mbr-arrow hidden-sm-down" aria-hidden="true">
+        <a href="#next">
+            <i class="mbri-down mbr-iconfont"></i>
+        </a>
+    </div>
+</section>
+
+<section class="features1 cid-ruNBDZ0eEF" id="about">
+    <div class="container">
+        <div class="media-container-row">
+            {{ range .Site.Params.About.main -}}
+            <div class="card p-3 col-12 col-md-6 col-lg-4">
+                <div class="card-img pb-3">
+                    <span class="mbr-iconfont {{ .icon }}" style="color: #0f7699; fill: rgb(15, 118, 153); font-size: 80px;"></span>
+                </div>
+                <div class="card-box">
+                    <h4 class="card-title py-3 mbr-fonts-style display-5">{{ .title }}</h4>
+                    <p class="mbr-text mbr-fonts-style display-7">{{ .content }}</p>
+                </div>
+            </div>
+            {{- end }}
+        </div>
+    </div>
+</section>
+
+<section class="mbr-section content7" style="border-top-width: 0px;border-top-style: solid;padding-top: 60px;padding-bottom: 60px;" id="advantages">
+<div class="container">
+    <div class="row mb-5">
+        <div class="block-heading-1 col-12 text-center mbr-fonts-style">
+            <div class="media-content">
+                <h2 class="mbr-section-title pb-3 align-center mbr-fonts-style display-2">{{.Site.Params.Advantages.title}}</h2>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="color: #767676;">
+        <div class="col-lg-6">
+            {{ range .Site.Params.Advantages.main -}}
+            <div class="mb-5 mbr-section-text">
+                {{ with .title }}<h3 class="card-title py-3 mbr-fonts-style display-5" style="color: #0f7699;">{{ . | safeHTML }}</h3>{{ end }}
+                {{ with .content }}<p class="mbr-text align-left mb-3 mbr-fonts-style display-7">{{ . | safeHTML }}</p>{{ end }}
+            </div>
+            {{- end }}
+        </div>
+        <div class="col-lg-6">
+            {{ range .Site.Params.Advantages.slave -}}
+            <div class="mb-5 mbr-section-text">
+                {{ with .title }}<h3 class="card-title py-3 mbr-fonts-style display-5" style="color: #0f7699;">{{ . | safeHTML }}</h3>{{ end }}
+                {{ with .content }}<p class="mbr-text align-left mb-3 mbr-fonts-style display-7">{{ . | safeHTML }}</p>{{ end }}
+            </div>
+            {{- end }}
+        </div>
+    </div>
+</div>
+</section>
+
+<section class="progress-bars2 cid-ruXscj5IY2" id="projects">
+    <div class="container">
+        <h2 class="mbr-title pt-2 mbr-fonts-style display-2">{{.Site.Params.Projects.title}}</h2>
+        <div class="mbr-section-text" style="margin-bottom: 39px;"></div>
+        <div class="card-deck">
+            {{ range .Site.Params.Projects.main -}}
+            <div class="card">
+                <img class="card-img-top" src="{{ .img }}" alt="Card image cap">
+                <div class="card-body">
+                    {{ with .title }}<h2 class="card-title">{{ . | safeHTML }}</h2>{{ end }}
+                    {{ with .content }}<p class="card-text">{{ . | safeHTML }}</p>{{ end }}
+                </div>
+                <div class="mbr-section-btn align-center py-0">
+                    <a class="btn btn-secondary display-4" href="{{ .url | relLangURL }}">{{ .btn }}</a>
+                </div>
+            </div>
+            {{- end }}
+        </div>
+    </div>
+</section>
+
+<section class="features11 cid-ruXpPiazmW" id="directions">
+    <div class="container">   
+    <h2 class="mbr-title pb-3 mbr-fonts-style display-2">{{.Site.Params.Directions.title}}</h2>
+    <div class="block-content">
+        <div class="media-container-row">
+            <div class="mbr-figure m-auto" style="width: 50%;">
+                <img src="{{ .Site.Params.Directions.img }}" alt="" title="">
+            </div>
+            <div class=" align-left aside-content">
+                {{ with .Site.Params.Directions.content }}<p class="card-text">{{ . | safeHTML }}</p>{{ end }}
+                {{ range .Site.Params.Directions.main -}}
+                <div class="card p-3 pr-3">
+                    <div class="media">
+                        <div class="align-self-center card-img">
+                            <span class="mbr-iconfont mbri-bookmark" style="color: #0f7699; fill: rgb(15, 118, 153); font-size: 35px;"></span>
+                        </div>
+                        {{ with .title }}<h3 class="card-title mbr-fonts-style display-7">{{ . | safeHTML }}</h3>{{ end }}
+                    </div>                
+                </div>
+                {{- end }}
+            </div>
+        </div>
+    </div>
+</div>          
+</section>
+
+<section class="mbr-section content7 cid-ruNvXuN71m" id="choice">
+    <div class="container">
+        <div class="media-container-row">
+            <div class="col-12 col-md-12">
+                <div class="media-container-row">
+                    <div class="media-content">
+                      <h2 class="mbr-section-title pb-3 align-center mbr-fonts-style display-2">{{.Site.Params.Choice.title}}</h2>
+                        <div class="mbr-section-text">
+                            {{ range .Site.Params.Choice.main -}}
+                            {{ with .content }}<p class="mbr-text align-right mb-3 mbr-fonts-style display-7">{{ . | safeHTML }}</p>{{ end }}
+                            {{- end }}
+                        </div>
+                      	<span class="vspacer"></span>
+                      	<div class="mbr-section-btn"><a class="btn btn-md btn-secondary display-4" href="{{ .Site.BaseURL | relLangURL }}contact">{{ .Site.Params.contact }}</a></div>
+                    </div>
+                    <div class="mbr-figure align-top" style="width: 100%;">
+                     <img src="{{ .Site.Params.Choice.img }}" alt="" title="">  
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="mbr-section" id="wi" data-rv-view="269" style="background-color: rgb(255, 255, 255);">
+ <div class="witsec-custom-html-container elements-content" style="padding-top: 3rem; padding-bottom: 3rem;">
+    <div class="mbr-section__container block" style="width: 100%;"></div>
+ </div>
+</section>
+
+<section class="mbr-section info2 cid-ruXIRFRxrA" id="info2-1n">
+    <div class="container">
+        <div class="row main justify-content-center">
+            <div class="media-container-column col-12 col-lg-3 col-md-4">
+                <div class="mbr-section-btn align-left py-4">
+                    <a class="btn btn-primary display-4" href="{{ .Site.BaseURL | relLangURL }}contact">{{ .Site.Params.Wi.btn }}</a>
+                </div>
+            </div>
+            <div class="media-container-column title col-12 col-lg-7 col-md-6">
+                <h2 class="align-right mbr-white pb-3 mbr-fonts-style display-2">
+                    {{ with .Site.Params.Wi.title }}{{ . | safeHTML }}{{ end }}</h2>
+                <h3 class="mbr-section-subtitle align-right mbr-light mbr-white mbr-fonts-style display-5">
+                    {{ with .Site.Params.Wi.content }}{{ . | safeHTML }}{{ end }}</h3>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <section class="section-clients">
+        <div class="container">
+          <ul class="section-clients-list list-unstyled">
+            <li><img src="../images/raspberry.png" alt="Raspberry Pi" width="50" height="60"></li>
+            <li><img src="../images/stm32.png" alt="STM32" width="60" height="60"></li>
+            <li><img src="../images/swagger.png" alt="Swagger" width="175" height="50"></li>
+            <li><img src="../images/grbl.png" alt="grbl 1.1" width="77" height="50"></li>
+            <li><img src="../images/github.png" alt="Github" width="60" height="63"></li>
+            <li><img src="../images/golang.png" alt="Golang" width="100" height="37"></li>
+          </ul>
+        </div>
+      </section>
+</section>
+
+{{ end }}

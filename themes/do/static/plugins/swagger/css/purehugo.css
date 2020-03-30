@@ -1,0 +1,105 @@
+/* Background */ .chroma { color: #b97852; background-color: #f9fbf2 }
+/* Error */ .chroma .err { color: #960050; background-color: #1e0010 }
+/* LineTableTD */ .chroma .lntd { vertical-align: top; padding: 0; margin: 0; border: 0; }
+/* LineTable */ .chroma .lntable { border-spacing: 0; padding: 0; margin: 0; border: 0; width: auto; overflow: auto; display: block; }
+/* LineHighlight */ .chroma .hl { display: block; width: 100%;background-color: #ffffcc }
+/* LineNumbersTable */ .chroma .lnt { margin-right: 0.4em; padding: 0 0.4em 0 0.4em;color: #7f7f7f }
+/* LineNumbers */ .chroma .ln { margin-right: 0.4em; padding: 0 0.4em 0 0.4em;color: #7f7f7f }
+/* Keyword */ .chroma .k { color: #3290d0 }
+/* KeywordConstant */ .chroma .kc { color: #3290d0 }
+/* KeywordDeclaration */ .chroma .kd { color: #3290d0 }
+/* KeywordNamespace */ .chroma .kn { color: #f92672 }
+/* KeywordPseudo */ .chroma .kp { color: #3290d0 }
+/* KeywordReserved */ .chroma .kr { color: #3290d0 }
+/* KeywordType */ .chroma .kt { color: #3290d0 }
+/* NameAttribute */ .chroma .na { color: #3aae0a }
+/* NameClass */ .chroma .nc { color: #3aae0a }
+/* NameConstant */ .chroma .no { color: #3290d0 }
+/* NameDecorator */ .chroma .nd { color: #3aae0a }
+/* NameException */ .chroma .ne { color: #3aae0a }
+/* NameFunction */ .chroma .nf { color: #3aae0a }
+/* NameOther */ .chroma .nx { color: #3aae0a }
+/* NameTag */ .chroma .nt { color: #f92672 }
+/* Literal */ .chroma .l { color: #ae81ff }
+/* LiteralDate */ .chroma .ld { color: #caca2b; }
+/* LiteralString */ .chroma .s { color: #caca2b; }
+/* LiteralStringAffix */ .chroma .sa { color: #caca2b; }
+/* LiteralStringBacktick */ .chroma .sb { color: #caca2b; }
+/* LiteralStringChar */ .chroma .sc { color: #caca2b; }
+/* LiteralStringDelimiter */ .chroma .dl { color: #caca2b; }
+/* LiteralStringDoc */ .chroma .sd { color: #caca2b; }
+/* LiteralStringDouble */ .chroma .s2 { color: #caca2b; }
+/* LiteralStringEscape */ .chroma .se { color: #ae81ff }
+/* LiteralStringHeredoc */ .chroma .sh { color: #caca2b; }
+/* LiteralStringInterpol */ .chroma .si { color: #caca2b; }
+/* LiteralStringOther */ .chroma .sx { color: #caca2b; }
+/* LiteralStringRegex */ .chroma .sr { color: #caca2b; }
+/* LiteralStringSingle */ .chroma .s1 { color: #caca2b; }
+/* LiteralStringSymbol */ .chroma .ss { color: #caca2b; }
+/* LiteralNumber */ .chroma .m { color: #ae81ff }
+/* LiteralNumberBin */ .chroma .mb { color: #ae81ff }
+/* LiteralNumberFloat */ .chroma .mf { color: #ae81ff }
+/* LiteralNumberHex */ .chroma .mh { color: #ae81ff }
+/* LiteralNumberInteger */ .chroma .mi { color: #ae81ff }
+/* LiteralNumberIntegerLong */ .chroma .il { color: #ae81ff }
+/* LiteralNumberOct */ .chroma .mo { color: #ae81ff }
+/* Operator */ .chroma .o { color: #f92672 }
+/* OperatorWord */ .chroma .ow { color: #f92672 }
+/* Comment */ .chroma .c { color: #75715e }
+/* CommentHashbang */ .chroma .ch { color: #75715e }
+/* CommentMultiline */ .chroma .cm { color: #75715e }
+/* CommentSingle */ .chroma .c1 { color: #75715e }
+/* CommentSpecial */ .chroma .cs { color: #75715e }
+/* CommentPreproc */ .chroma .cp { color: #75715e }
+/* CommentPreprocFile */ .chroma .cpf { color: #75715e }
+/* GenericDeleted */ .chroma .gd { color: #f92672 }
+/* GenericEmph */ .chroma .ge { font-style: italic }
+/* GenericInserted */ .chroma .gi { color: #3aae0a }
+/* GenericStrong */ .chroma .gs { font-weight: bold }
+/* GenericSubheading */ .chroma .gu { color: #75715e }
+
+.tabs {
+    position: relative;   
+    min-height: 600px; /* This part sucks */
+    clear: both;
+    border: 1px solid #ccc;
+    padding: 10px;
+  }
+  .tab {
+    float: left;
+    margin: 1px 2px 1px;
+  }
+  .tab label {
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+    position: relative;
+    z-index: 2;
+    -webkit-transition: background-color .17s linear;
+  }
+  .tab [type=radio] {
+    display: none;   
+  }
+  .tab-content {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 20px;
+    background: #f9fbf2;
+    -webkit-transition: opacity .6s linear;
+    opacity: 0;
+  }
+  [type=radio]:checked ~ label {
+    border-bottom: 3px solid #3290d0;
+    z-index: 2;
+  }
+  [type=radio]:hover ~ label {
+    border-bottom: 2px solid #3290d0;
+    z-index: 2;
+  }
+  [type=radio]:checked ~ label ~ .tab-content {
+    z-index: 1;
+    opacity: 1;
+  }

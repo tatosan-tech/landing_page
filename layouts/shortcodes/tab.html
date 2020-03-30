@@ -1,0 +1,5 @@
+<div class="tab">
+   <input type="radio" id="tab-{{ .Ordinal }}" name="tab-group"{{ if eq .Ordinal 8 }} checked{{ end }}>
+   <label for="tab-{{ .Ordinal }}">{{ .Get 0 }}</label>
+   <div class="tab-content">{{ .Inner }}</div>
+</div>

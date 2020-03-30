@@ -1,0 +1,48 @@
+<section class="menu cid-ruNsw1yRec" once="menu" id="menu1-0">
+    <nav class="navbar navbar-expand beta-menu navbar-dropdown align-items-center navbar-fixed-top navbar-toggleable-sm">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+           <!-- <div class="hamburger"> -->
+                <span></span>
+            <!--</div>-->
+        </button>
+        <div class="menu-logo">
+            <div class="navbar-brand">
+                <span class="navbar-caption-wrap">
+                    <a class="navbar-caption text-black display-5" href="{{ .Site.BaseURL | relLangURL }}">{{ .Site.Title }}</a>
+                </span>
+            </div>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav nav-dropdown navbar-right" data-app-modern-menu="true">
+                {{ range .Site.Menus.main }}
+                {{ if .HasChildren }}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">{{ .Name }}</a>
+                    <div class="dropdown-menu">
+                    {{ range .Children }}
+                        <a class="dropdown-item" href="{{ .URL | relLangURL }}">{{ .Name }}</a>
+                    {{ end }}
+                    </div>
+                </li>
+                {{ else }}
+                <li class="nav-item">
+                    <a class="nav-link link text-black display-4" href="{{ .URL | relLangURL }}">{{ .Name }}</a>
+                </li>
+                {{ end }}
+                {{ end }}
+                <!-- Language List 
+                {{range $.Site.Home.AllTranslations }}<a class="myBtnSetup" style="margin-left: 10px;" href="{{ .Permalink }}">{{ .Language.LanguageName }}</a>{{ end }}
+                <a class="icon" onclick="myFunction()"></a>
+
+                <li class="nav-item">
+                <div class="card-img pb-0">
+                    <span class="mbr-iconfont mbri-mobile2" style="color: rgb(15, 118, 153); fill: rgb(15, 118, 153); font-size: 26px;"></span>
+                </div>
+                </li>-->
+                <li class="nav-item"><a class="nav-link link text-black display-4" href="tel:+380956151251?call"><b>+380956151251</b></a></li>
+                <li><div class="mbr-section-btn"><a class="btn btn-md btn-secondary display-4" href="{{ .Site.BaseURL | relLangURL }}contact/">{{ .Site.Params.contact }}</a></div></li>
+            </ul>
+        </div>
+    </nav>
+</section>

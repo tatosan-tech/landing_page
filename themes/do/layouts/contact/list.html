@@ -1,0 +1,93 @@
+{{ define "main" }}
+
+{{ "<!-- contact -->" | safeHTML }}
+<section class="mbr-section content5 cid-ruXJBlWiZf mbr-parallax-background" id="content5-1o">
+    <div class="mbr-overlay" style="opacity: 0.8; background-color: rgb(0, 35, 102);"></div>
+    <div class="container">
+        <div class="media-container-row">
+            <div class="title col-12 col-md-8">
+                <h2 class="align-center mbr-white pb-3 mbr-fonts-style display-2">{{ .Title }}</h2>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="mbr-section contacts2 cid-ruOSFMRcwn" id="contacts2-12">
+    <div class="container">
+        <div class="row">
+            <!--Titles-->
+            <div class="title col-12"></div>
+            <div class="col-12">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-md-4">
+                        <div class="b b-adress">
+                            <div class="card-img pb-3">
+                                <span class="mbr-iconfont mbri-clock" style="color: #0f7699; fill: rgb(15, 118, 153); font-size: 80px;"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-7">
+                        <div class="b b-phone">
+                            {{ .Content }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="mbr-section form4 cid-ruOSWCqLJZ" id="form4-13">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div>
+                    <div class="align-center icon-block pb-3">
+                        <span class="icon-block__icon">
+                            <span class="mbri-letter mbr-iconfont"></span>
+                        </span>
+                        <h4 class="icon-block__title mbr-fonts-style display-5">
+                            Електронная почта:
+                        </h4>
+                    </div>
+                    <div class="icon-contacts pb-3">
+                       <a href="mailto:&#105;&#110;&#102;&#111;&#064;&#116;&#097;&#116;&#111;&#115;&#097;&#110;&#046;&#099;&#111;&#109;" class="align-center nav-link link text-black display-4"><b>&#105;&#110;&#102;&#111;&#064;&#116;&#097;&#116;&#111;&#115;&#097;&#110;&#046;&#099;&#111;&#109;</b></a><br>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div>
+                    <div class="align-center icon-block pb-3">
+                        <span class="icon-block__icon">
+                            <span class="mbri-mobile mbr-iconfont"></span>
+                        </span>
+                        <h4 class="icon-block__title mbr-fonts-style display-5">
+                            Телефоны:
+                        </h4>
+                    </div>
+                    <div class="icon-contacts pb-3">
+                        <a href="tel:+380956151251?call" class="align-center nav-link link text-black display-4"><b>+38-095-6151251</b></a><br>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div>
+                    <div class="align-center icon-block pb-3">
+                        <span class="icon-block__icon">
+                            <span class="mbri-paper-plane mbr-iconfont"></span>
+                        </span>
+                        <h4 class="icon-block__title mbr-fonts-style display-5">
+                            Меседжеры:
+                        </h4>
+                    </div>
+                    <div class="icon-contacts pb-3">
+                        <a href="https://t.me/Tato_San" class="align-center nav-link link text-black display-4">Telegram - <b>@Tato_San</b></a><br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{{ "<!-- /contact -->" | safeHTML }}
+
+{{ end }}
